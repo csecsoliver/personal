@@ -1,0 +1,26 @@
+body{
+  
+  font-family: monospace;
+
+}
+.flex {
+  display: flex;
+
+}
+.flex div{
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  margin: 0.5rem;
+  height: fit-content;
+}
+p{
+
+  overflow-wrap:break-word;
+  word-break: normal;
+}
+.ovhide{
+  overflow: hide;
+  overflow-wrap: normal;
+}
+
