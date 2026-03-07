@@ -1,18 +1,27 @@
 body{
   
   font-family: monospace;
-
+  }
+body div, body p, body button, body textarea, h1, h2, h3, h4 {
+  margin: 0.5rem;
+}
+html{
+  font-size: 20px;
 }
 .flex {
   display: flex;
+  flex-wrap: wrap;
 
 }
 .flex div{
-  border: 1px solid black;
   padding: 1rem;
   border-radius: 0.2rem;
   margin: 0.5rem;
   height: fit-content;
+}
+div{
+  border: 1px solid black;
+
 }
 p{
 
@@ -20,7 +29,46 @@ p{
   word-break: normal;
 }
 .ovhide{
-  overflow: hide;
+  overflow: hidden;
+  overflow-wrap: normal;
+}
+.ovscroll{
+  overflow: scroll;
   overflow-wrap: normal;
 }
 
+li:hover::after{
+  content: " boo"
+}
+button{
+  font-size: 1rem;
+  display: block;
+  padding: 0.2rem 0.5rem;
+}
+input, textarea {
+  
+  font-size: 1rem;
+}
+@media screen and (min-width: 700px) {
+  
+  body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  #ctdiv{
+    max-width: calc(70vw - 2rem);
+
+
+  }
+  #mbdiv{
+    max-width: calc(30vw - 2rem);
+    height: fit-content;
+  }
+}
+@media screen and (max-width: 700px) {
+  html{
+    font-size: 14px
+  }
+}

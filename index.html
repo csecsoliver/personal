@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+      <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js" defer></script>
   </head>
   <body>
+    <div id="ctdiv">
+      
     <h1>Helo</h1>
-    <h2>Welcome to my site I guess?</h2>
-    <p class="ovhide">eoeewoewwoesoeewooweooewooweooewooewoewoweoewoewewoewoweooewewoeowwoeweoewoeowoeweowoweoewweooewweoeowwoeeowwoeoewwoeeowwoeeowwoeeowwoeeowwoeeowweooewwoeoewwoeoewwoeewowoe</p>
-
+    <h2>my site I guess?</h2>
+    <p class="ovhide" id="ewo">eoeewoewwoesoeewooweooewooweooewooewoewoweoewoewewoewoweooewewoeowwoeweoewoeowoeweowoweoewweooewweoeowwoeeowwoeoewwoeeowwoeeowwoeeowwoeeowwoeeowweooewwoeoewwoeoewwoeewowoe</p>
     <div class="flex">
       <div>
         <h2>This is what I know</h2>
@@ -46,19 +49,33 @@
     </div>
     <h1>Things I made:</h1>
     <div class="flex"> 
-      <div>
+      <div class="ovscroll">
         <h2>My team's campfire sumbission (We won :D)</h2>
         <iframe width="552" height="167" frameborder="0" src="https://itch.io/embed/4331780"><a href="https://csecsoliver.itch.io/beneath">Beneath by csecsoliver</a></iframe>
       </div>
-      <div>
+      <div class="ovscroll">
         <h2>A goofy tank game</h2>
         <img src="tanks.png" alt="Gameplay" width="300"><br>
         <a href="https://tingly-tanks.vercel.app" target="_blank">Visit!</a> 
 
       </div>
-      <div>
+      <div class="ovscroll">
         <h2>Blogging site or whatever: <a href="https://abcms.olio.ovh">Visit!</a></h2>
-        <iframe src="https://abcms.olio.ovh" width="800" height="600">
+        <iframe src="https://abcms.olio.ovh" width="800" height="600"></iframe>
+      </div>
+    </div>
+
+    </div>
+    <div id="mbdiv">
+      <h2>Message Board</h2>
+      <p>Here you can leave messages (or just a bump if you leave the text blank) for me and other people visiting the site</p>
+      <textarea rows="2" cols="15" id="message"></textarea>
+      <button id="submit_message">Send!</button>
+      <p>Your counter: <span id="counter">0</span></p>
+      <p>Global counter: <span id="gcounter" hx-get="/counter" hx-swap="innerHTML" hx-trigger="every 1s"></span></p>
+      <div class="flex" id="board" hx-get="/messages" hx-swap="innerHTML" hx-trigger="load every 120s">
+        
+
       </div>
     </div>
   </body>
