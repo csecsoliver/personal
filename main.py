@@ -16,7 +16,7 @@ def f(fp):
 def gc():
     with open("msg.json") as mfr:
         count = len(json.load(mfr))
-    return count
+    return str(count)
 
 
 @post("/messages")
