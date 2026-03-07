@@ -3,7 +3,7 @@ const messageEl = document.getElementById("message")
 const boardEl = document.getElementById("board")
 counterEl.innerText = parseInt(localStorage.getItem("counter") ?? "0")
 document.getElementById("submit_message").addEventListener("click", async () => {
-  counterEl.innerText = parseInt(localStorage.getItem("counter")) + 1
+  counterEl.innerText = parseInt(localStorage.getItem("counter") ?? "0") + 1
   localStorage.setItem("counter", parseInt(counterEl.innerText))
   const response = await fetch("/messages", {
     method: "POST",
