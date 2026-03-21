@@ -7,12 +7,12 @@ unsaved = 0
 
 @route("/")
 def index():
-    return static_file("index.html", root="./")
+    return static_file("index.html", root="./static/")
 
 
 @get("/clicker")
 def gclp():
-    return static_file("clicker.html", root="./")
+    return static_file("clicker.html", root="./static/")
 
 
 @post("/click")
@@ -43,7 +43,7 @@ def gcls():
 
 @get("/<fp:path>")
 def f(fp):
-    return static_file(fp, root="./static")
+    return static_file(fp, root="./static/")
 
 
 @get("/counter")
