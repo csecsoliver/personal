@@ -1,9 +1,7 @@
 from bottle import route, run, static_file, get, post, request, template
 import json
 
-with open("cl.json") as clf:
-    cldata = json.load(clf)
-clicks = cldata["clicks"]
+clicks = 0
 unsaved = 0
 
 
