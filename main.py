@@ -1,10 +1,46 @@
 from bottle import route, run, static_file, get, post, request, template
 import json
 
+with open("cl.json") as clf:
+    cldata = json.load(clf)
+clicks = cldata["clicks"]
+unsaved = 0
+
 
 @route("/")
 def index():
     return static_file("index.html", root="./")
+
+
+@get("/clicker")
+def gclp():
+    return static_file("clicker.html", root="./")
+
+
+@post("/click")
+def pcl():
+    global clicks
+    global unsaved
+    clicks += 1
+    unsaved += 1
+    if unsaved > 1000:
+        with open("cl.json", "w") as clf:
+            json.dump({"clicks": clicks}, clf)
+        unsaved = 0
+    return str(clicks)
+
+
+@route("/saveclicks")
+def saveclicks():
+    with open("cl.json", "w") as clf:
+        json.dump({"clicks": clicks}, clf)
+
+
+@post("/clicks")
+def gcls():
+    print("all in memory:", clicks)
+    print("unsaved:", unsaved)
+    return str(clicks)
 
 
 @get("/<fp:path>")
@@ -81,4 +117,13 @@ if __name__ == "__main__":
     except:
         with open("msg.json", "w") as mf:
             json.dump([], mf)
+    try:
+        with open("cl.json", "r") as clf:
+            cldata = json.load(clf)
+            clicks = int(cldata["clicks"])
+    except:
+        with open("cl.json", "w") as clf:
+            json.dump({"clicks": 0}, clf)
+            clicks = 0
+
     run(host="localhost", port=8080, debug=True)

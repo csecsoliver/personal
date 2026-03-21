@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Just a site</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="clicker.css">
+  <script src="clicker.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js" defer></script>
+</head>
+
+<body>
+  <main id="game-layout">
+    <aside id="game-stats">
+      <div id="bought-items">
+
+      </div>
+    </aside>
+    <section id="game-area">
+      <p>Money $<span id="counter" hx-post="/clicks" hx-swap="innerHTML" hx-trigger="every 2s">loading...</span></p>
+      <p>Local Money $<span id="local-counter">0</span></p>
+      <button id="clicker-button">
+        <img src="https://f.olio.ovh/public/cdn/usrbincat.gif" alt="/usr/bin/cat image" width="200">
+
+      </button>
+    </section>
+    <aside id="game-shop">
+
+    </aside>
+  </main>
+</body>
+
+</html>
