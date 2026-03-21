@@ -45,7 +45,7 @@ def gcls():
 
 @get("/<fp:path>")
 def f(fp):
-    return static_file(fp, root="./")
+    return static_file(fp, root="./static")
 
 
 @get("/counter")
