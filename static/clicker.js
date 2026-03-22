@@ -7,7 +7,7 @@ const shopItems = [
   },
   {
     name: "Upgrade",
-    description: "Upgrades the earning power of you clicks.",
+    description: "Upgrades the earning power of your clicks.",
     cost: 50,
     startingCost: 50,
   },
